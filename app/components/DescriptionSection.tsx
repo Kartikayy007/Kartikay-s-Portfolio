@@ -30,10 +30,10 @@ export default function DescriptionSection({ userData }: any) {
       
       {/* Expanding Overlay */}
       {!expanded && (
-        <div className="absolute bottom-0 right-0 bg-[#151515] bg-opacity-90 pl-6 py-1 flex items-center shadow-[-20px_0_15px_-5px_#151515]">
+        <div className="absolute bottom-0 left-0 w-full h-[60px] bg-gradient-to-t from-[#151515] via-[#151515]/80 to-transparent flex items-end justify-end pb-1 pr-1">
           <button 
             onClick={() => setExpanded(true)}
-            className="text-[#1e86ff] text-[15px] font-semibold hover:opacity-80 transition-opacity"
+            className="text-[#1e86ff] text-[15px] font-semibold hover:opacity-80 transition-opacity bg-[#151515] pl-4 pt-4"
           >
             more
           </button>

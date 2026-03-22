@@ -1,3 +1,4 @@
+"use client";
 import QuickInfoBar from "./QuickInfoBar";
 
 export default function Header({ userData }: any) {
@@ -22,15 +23,28 @@ export default function Header({ userData }: any) {
               {userData?.name || userData?.login || "Kartikay Singh"}
             </h1>
             <p className="text-lg md:text-[20px] font-semibold text-white/90 mt-1 drop-shadow-sm line-clamp-1">
-              {userData?.bio || "Software Engineer & Designer"}
+              {userData?.bio || "Full Stack & iOS Developer"}
             </p>
             <p className="text-sm md:text[14px] font-medium text-white/70 mt-1.5">
-              Free &middot; Open Source
+              Open for Opportunities
             </p>
 
             {/* Action Button: Pill Shape Share */}
             <div className="mt-5 flex justify-center md:justify-start">
-              <button className="flex items-center justify-center gap-2 px-5 py-1.5 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md transition-colors font-semibold text-white text-[15px]">
+              <button 
+                onClick={() => {
+                  if (navigator.share) {
+                    navigator.share({
+                      title: 'Kartikay Singh - Portfolio',
+                      url: window.location.href
+                    }).catch(console.error);
+                  } else {
+                    navigator.clipboard.writeText(window.location.href);
+                    alert("Link copied to clipboard!");
+                  }
+                }}
+                className="flex items-center justify-center gap-2 px-5 py-1.5 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md transition-colors font-semibold text-white text-[15px]"
+              >
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
                 </svg>

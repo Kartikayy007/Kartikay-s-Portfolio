@@ -8,8 +8,8 @@ export default function MediaSection({ reposData }: any) {
   // Reliable Tenor GIF links 
   const bgGifs = [
     "https://media.giphy.com/media/NTur7XlVDUdqM/giphy.gif", 
-    "https://media.tenor.com/FwWk8U3_KPEAAAAC/cat-laptop.gif", 
-    "https://media.tenor.com/bK1roXqU2iYAAAAC/matrix-code.gif", 
+    "https://tenor.com/view/cat-gif-26024704.gif", 
+    "https://tenor.com/view/laptop-gif-26065234.gif", 
   ];
 
   const scroll = (direction: 'left' | 'right') => {

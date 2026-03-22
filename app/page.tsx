@@ -28,7 +28,7 @@ export default async function Page() {
         <EventsSection />
         <ReviewsSection />
         {/* <WhatsNewSection reposData={allRepos} /> */}
-        <InformationSection userData={userData} reposData={allRepos} />
+        {/* <InformationSection userData={userData} reposData={allRepos} /> */}
         <YouMightAlsoLikeSection reposData={otherRepos} />
       </div>
     </main>
