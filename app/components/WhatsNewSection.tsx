@@ -15,9 +15,9 @@ export default function WhatsNewSection({ reposData }: any) {
 
       <div className="flex flex-col md:flex-row justify-between mb-4 mt-2">
         <p className="text-[15px] text-[#e5e5e5] leading-[1.6] md:max-w-[70%] order-2 md:order-1 mt-4 md:mt-0">
-          We've improved how you find and connect with the right developer you want—whether it's an app, a website, or something long-term.
+          This portfolio has been completely architected from the ground up to reflect my latest advancements in web infrastructure. 
           <br /><br />
-          Get one step closer to what you're looking for with an upgraded tech stack, integrating Next.js 15, Tailwind CSS v4, and fully native web implementations of native UI patterns.
+          Built with Next.js 15, Tailwind CSS, and a custom Vercel Postgres integration, it seamlessly delivers dynamic App Store native UI patterns, real-time data fetching, and an incredibly optimized 95+ Lighthouse score viewing experience.
         </p>
 
         <div className="flex flex-col text-left md:text-right order-1 md:order-2">

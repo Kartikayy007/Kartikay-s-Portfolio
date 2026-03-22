@@ -1,38 +1,44 @@
 "use client";
-
 import { useState } from "react";
 
 export default function DescriptionSection({ userData }: any) {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <section className="w-full mt-6">
-      <div className="relative">
-        <p className={`text-[#e5e5e5] text-[15px] leading-[1.6] ${!expanded ? "line-clamp-3" : ""}`}>
-          {userData?.bio ? `${userData.bio}\n\n` : ""}Hi there! I am Kartikay Singh, a dedicated Software Engineer and UI/UX Designer aiming to craft flawless digital experiences. This App Store portfolio is a showcase of my ability to replicate complex, high-fidelity UI constraints using Next.js and Tailwind CSS natively on the web. Over the past 5+ years, I have worked independently building dynamic, full-stack tools integrating everything from complex web rendering pipelines and interactive user interfaces to scalable infrastructure.
-          <br /><br />
-          My development philosophy emphasizes visual clarity, responsive fluid motion, and strict attention to human-interface guidelines. I love pushing the boundaries of web apps to feel like native experiences. Have a project that needs a polished touch? Let's connect!
+    <section className="w-full mt-10 relative">
+      <h2 className="text-[22px] font-bold text-white mb-3">About the Developer</h2>
+      
+      <div className={`text-[#e5e5e5] text-[15px] leading-[1.6] overflow-hidden transition-all duration-300 ${expanded ? 'max-h-[3000px]' : 'max-h-[160px]'}`}>
+        
+        <p className="mb-4 text-white font-medium">
+          Kartikay Singh Pundir is a software engineer based in Ghaziabad, India, specializing in native iOS development, full-stack web, and cloud infrastructure.
+        </p>
+
+        <p className="mb-4">
+          He ships production iOS apps with real-world traction — TrackSheet 2 hit 3.2K+ installs and 1.3K daily active users, while BunkBite achieved a 26.4% App Store conversion rate and 0% crash rate. On the web side, he builds with React, Next.js, TypeScript, and Python, backed by AWS infrastructure spanning Lambda, API Gateway, Cognito, DynamoDB, Step Functions, and WebSocket APIs.
         </p>
         
-        {!expanded && (
+        <p className="mb-4">
+          His work ranges from SwiftUI interfaces with CoreMotion and HealthKit, to Hexagonal-architected microservices handling 10K+ concurrent connections, to AI pipelines using LangChain, Groq, and Gemini.
+        </p>
+
+        <p className="mb-4">
+          <strong>Achievements:</strong> Smart India Hackathon winner &middot; Codeforces Specialist (max 1429) &middot; 1st place, INCLUDE 3.0 (500+ participants) &middot; 1st place, HackTech 2025
+        </p>
+
+      </div>
+      
+      {/* Expanding Overlay */}
+      {!expanded && (
+        <div className="absolute bottom-0 right-0 bg-[#151515] bg-opacity-90 pl-6 py-1 flex items-center shadow-[-20px_0_15px_-5px_#151515]">
           <button 
             onClick={() => setExpanded(true)}
-            className="text-[#1e86ff] hover:opacity-80 transition-opacity font-medium text-[15px] absolute bottom-0 right-0 bg-[#1e1e24] pl-3 leading-[1.6]"
+            className="text-[#1e86ff] text-[15px] font-semibold hover:opacity-80 transition-opacity"
           >
             more
           </button>
-        )}
-      </div>
-
-      <div className="mt-8 flex justify-between items-center cursor-pointer group">
-        <div>
-          <h3 className="text-[15px] text-[#1e86ff] group-hover:underline mb-0.5">Kartikay LLC</h3>
-          <p className="text-[13px] text-gray-500">Developer</p>
         </div>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-[18px] h-[18px] text-gray-500">
-          <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-        </svg>
-      </div>
+      )}
 
       <hr className="border-gray-800 mt-6" />
     </section>

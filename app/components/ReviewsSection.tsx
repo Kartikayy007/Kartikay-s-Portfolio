@@ -5,6 +5,7 @@ export default async function ReviewsSection() {
   let reviews: any[] = [];
   let avgRating = "4.9";
   let totalRatings = "1.7M";
+  let ratingsCount = { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 };
 
   try {
     const data = await sql`SELECT * FROM reviews ORDER BY created_at DESC LIMIT 15`;
@@ -13,10 +14,20 @@ export default async function ReviewsSection() {
       const sum = reviews.reduce((acc, curr) => acc + curr.rating, 0);
       avgRating = (sum / reviews.length).toFixed(1);
       totalRatings = reviews.length.toString();
+      
+      reviews.forEach(r => {
+        if (r.rating >= 1 && r.rating <= 5) ratingsCount[r.rating as keyof typeof ratingsCount]++;
+      });
     }
   } catch (e) {
     console.error("DB not initialized yet or query failed.", e);
   }
+
+  // Width generator for bars
+  const getWidth = (count: number) => {
+    if (reviews.length === 0) return '0%';
+    return `${(count / reviews.length) * 100}%`;
+  };
   const StarIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-2.5 h-2.5">
       <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clipRule="evenodd" />

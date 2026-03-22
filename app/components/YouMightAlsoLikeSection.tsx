@@ -3,12 +3,13 @@ export default function YouMightAlsoLikeSection({ reposData }: any) {
   const otherRepos = reposData || [];
   if (otherRepos.length === 0) return null;
 
-  const colors = [
-    "bg-blue-500/10 text-blue-400 border-blue-500/20", 
-    "bg-purple-500/10 text-purple-400 border-purple-500/20", 
-    "bg-pink-500/10 text-pink-400 border-pink-500/20", 
-    "bg-orange-500/10 text-orange-400 border-orange-500/20", 
-    "bg-green-500/10 text-green-400 border-green-500/20"
+  // GIF backgrounds for the icon boxes
+  const iconGifs = [
+    "https://media.giphy.com/media/13HgwGsXF0aiGY/giphy.gif",
+    "https://media.giphy.com/media/aB5xY1mB6o22Y/giphy.gif",
+    "https://media.giphy.com/media/3ov9jEciDzP1J8Hl84/giphy.gif",
+    "https://media.giphy.com/media/26tn33aiTi1jVDzO0/giphy.gif",
+    "https://media.giphy.com/media/l41YtZOb9EUABnuqA/giphy.gif"
   ];
 
   return (
@@ -22,13 +23,13 @@ export default function YouMightAlsoLikeSection({ reposData }: any) {
 
       <div className="w-full overflow-x-auto pb-6 scrollbar-hide snap-x">
         <div className="grid grid-rows-2 grid-flow-col gap-x-8 gap-y-4 w-max">
-          {otherRepos.map((repo: any) => {
-            const colorClass = repo.id ? colors[repo.id % colors.length] : colors[0];
+          {otherRepos.map((repo: any, index: number) => {
+            const gifUrl = iconGifs[index % iconGifs.length];
             return (
               <div key={repo.id || repo.name} className="w-[300px] md:w-[320px] flex items-center gap-3 snap-center cursor-pointer group">
                 {/* Repo Icon */}
-                <div className={`w-[60px] h-[60px] flex-shrink-0 rounded-[14px] border flex flex-col items-center justify-center text-xl font-bold shadow-sm overflow-hidden relative ${colorClass}`}>
-                  {repo.name.charAt(0).toUpperCase()}
+                <div className={`w-[60px] h-[60px] flex-shrink-0 rounded-[14px] border border-gray-700/50 flex flex-col items-center justify-center shadow-sm overflow-hidden relative bg-[#1c1c1e]`}>
+                  <img src={gifUrl} alt="icon-bg" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 
                 <div className="flex-1 min-w-0 pr-2 border-b border-gray-800/50 pb-2">

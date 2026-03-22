@@ -5,7 +5,6 @@ import EventsSection from "./components/EventsSection";
 import ReviewsSection from "./components/ReviewsSection";
 import WhatsNewSection from "./components/WhatsNewSection";
 import InformationSection from "./components/InformationSection";
-import FeaturedInSection from "./components/FeaturedInSection";
 import YouMightAlsoLikeSection from "./components/YouMightAlsoLikeSection";
 
 export default async function Page() {
@@ -26,11 +25,10 @@ export default async function Page() {
       <div className="max-w-5xl mx-auto px-6 lg:px-12">
         <MediaSection reposData={topRepos} />
         <DescriptionSection userData={userData} />
-        <EventsSection reposData={allRepos} />
+        <EventsSection />
         <ReviewsSection />
-        <WhatsNewSection reposData={allRepos} />
+        {/* <WhatsNewSection reposData={allRepos} /> */}
         <InformationSection userData={userData} reposData={allRepos} />
-        <FeaturedInSection />
         <YouMightAlsoLikeSection reposData={otherRepos} />
       </div>
     </main>
